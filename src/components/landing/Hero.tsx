@@ -67,10 +67,11 @@ export function Hero() {
 
         <motion.div
           className="lg:col-span-5"
-          initial={reduced ? undefined : { opacity: 0, scale: 0.94, filter: "blur(14px)" }}
-          animate={reduced ? undefined : { opacity: 1, scale: 1, filter: "blur(0px)" }}
+          initial={reduced ? false : { opacity: 0, scale: 0.94, filter: "blur(14px)" }}
+          animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
           transition={{ duration: 1.1, ease: [0.2, 0.8, 0.2, 1], delay: 0.2 }}
         >
+
           <div className="glow-ring relative rounded-[34px] p-[1.5px]">
             <div className="gradient-neon absolute inset-0 rounded-[34px] opacity-60" />
             <div className="relative overflow-hidden rounded-[32px] bg-surface">
