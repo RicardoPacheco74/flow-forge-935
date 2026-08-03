@@ -73,9 +73,10 @@ export function WhyNow() {
               {CURVE.map((h, i) => (
                 <div key={i} className="flex h-full flex-1 flex-col justify-end gap-2">
                   <div
-                    className="w-full rounded-t-md bg-gradient-to-t from-n8n/25 to-neon transition-all duration-700 hover:opacity-80"
-                    style={{ height: `${h}%` }}
+                    className="w-full rounded-t-md bg-gradient-to-t from-n8n to-neon opacity-90 shadow-[0_0_24px_-6px_var(--neon)] transition-all duration-700 hover:opacity-100"
+                    style={{ height: `${h}%`, minHeight: 10 }}
                   />
+
                   <span className="text-center font-mono text-[10px] text-muted-foreground">
                     {2019 + i}
                   </span>
