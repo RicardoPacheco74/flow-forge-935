@@ -84,8 +84,27 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Curso premium de automação e criação de agentes de IA com n8n: infraestrutura própria, RAG, multiagentes e MCP.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "n8n Agents" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "n8n Agents",
+          url: "https://flow-forge-935.lovable.app",
+          inLanguage: "pt-BR",
+          publisher: {
+            "@type": "Organization",
+            name: "n8n Agents",
+            url: "https://flow-forge-935.lovable.app",
+          },
+        }),
+      },
+    ],
+
     links: [
       {
         rel: "stylesheet",
