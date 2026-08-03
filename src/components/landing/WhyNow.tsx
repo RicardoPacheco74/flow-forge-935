@@ -69,20 +69,22 @@ export function WhyNow() {
                 tem pouca gente qualificada.
               </p>
             </div>
-            <div className="flex h-36 flex-1 items-end gap-3">
+            <div className="flex h-40 flex-1 items-stretch gap-3">
               {CURVE.map((h, i) => (
-                <div key={i} className="flex h-full flex-1 flex-col justify-end gap-2">
-                  <div
-                    className="w-full rounded-t-md bg-gradient-to-t from-n8n to-neon opacity-90 shadow-[0_0_24px_-6px_var(--neon)] transition-all duration-700 hover:opacity-100"
-                    style={{ height: `${h}%`, minHeight: 10 }}
-                  />
-
+                <div key={i} className="flex h-full flex-1 flex-col gap-2">
+                  <div className="flex min-h-0 flex-1 items-end">
+                    <div
+                      className="w-full rounded-t-md bg-gradient-to-t from-n8n to-neon opacity-90 shadow-[0_0_24px_-6px_var(--neon)] transition-all duration-700 hover:opacity-100"
+                      style={{ height: `${h}%`, minHeight: 10 }}
+                    />
+                  </div>
                   <span className="text-center font-mono text-[10px] text-muted-foreground">
                     {2019 + i}
                   </span>
                 </div>
               ))}
             </div>
+
 
           </div>
         </GlassCard>
