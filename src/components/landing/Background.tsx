@@ -49,10 +49,9 @@ export function Background() {
       }
       for (let i = 0; i < nodes.length; i++) {
         for (let j = i + 1; j < nodes.length; j++) {
-          const a = nodes[i];
-          const b = nodes[j];
-          const dx = a.x - b.x;
-          const dy = a.y - b.y;
+          const a = nodes[i]!;
+          const b = nodes[j]!;
+
           const dist = Math.hypot(dx, dy);
           if (dist < 150) {
             ctx.strokeStyle = `rgba(64, 224, 160, ${(1 - dist / 150) * 0.16})`;
