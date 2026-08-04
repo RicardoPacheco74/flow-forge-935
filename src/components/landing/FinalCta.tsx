@@ -23,19 +23,20 @@ export function FinalCta() {
                 <span className="text-neon text-glow">agentes de IA com n8n</span>
               </h2>
               <p className="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base">
-                {MODULES.length} módulos · {totalLessons}+ aulas · projetos completos, templates
-                prontos e atualizações vitalícias.
+                {MODULES.length} módulos · {TOTAL_LESSONS_LABEL} aulas · projetos completos,
+                templates prontos e atualizações vitalícias.
               </p>
 
               <div className="mx-auto mt-10 flex max-w-md flex-col items-center gap-1">
-                <span className="text-xs text-muted-foreground line-through">{OFFER.oldPrice}</span>
-                <p className="font-display text-4xl font-light tracking-tight md:text-5xl">
-                  {OFFER.installments}
-                </p>
-                <span className="text-xs text-muted-foreground">
-                  ou {OFFER.price} à vista no PIX
+                <span className="font-mono text-[11px] tracking-[0.16em] uppercase text-muted-foreground">
+                  Acesso vitalício
                 </span>
+                <p className="font-display text-4xl font-light tracking-tight md:text-5xl">
+                  {OFFER.price}
+                </p>
+                <span className="text-xs text-muted-foreground">Pagamento único</span>
               </div>
+
 
               <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
                 <CtaButton href={OFFER.checkoutUrl} className="px-9 py-4 text-base">
