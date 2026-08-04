@@ -1,13 +1,6 @@
 import { useState } from "react";
-import {
-  BadgeCheck,
-  Clock,
-  Gauge,
-  Layers,
-  Rocket,
-  Target,
-  Wrench,
-} from "lucide-react";
+import { BadgeCheck, Gauge, Layers, Rocket, Target, Wrench } from "lucide-react";
+
 
 import {
   Accordion,
