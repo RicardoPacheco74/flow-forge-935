@@ -2,7 +2,7 @@ import { motion, useReducedMotion } from "motion/react";
 import { ArrowRight, Bot, ChevronsDown, Sparkles, Zap } from "lucide-react";
 
 import heroImage from "@/assets/hero-automation.jpg";
-import { OFFER, TECHS } from "@/data/course";
+import { OFFER, TECHS, TOTAL_LESSONS_LABEL } from "@/data/course";
 import { CtaButton, Eyebrow } from "./primitives";
 
 function TechMarquee() {
