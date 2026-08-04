@@ -108,7 +108,7 @@ function ModuleBody({ module: mod }: { module: Module }) {
 
 export function Curriculum() {
   const [open, setOpen] = useState<string[]>([MODULES[0]!.id]);
-  const totalLessons = MODULES.reduce((acc, m) => acc + m.lessons.length, 0);
+  
   const progress = Math.round((open.length / MODULES.length) * 100);
 
   return (
