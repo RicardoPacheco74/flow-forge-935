@@ -2,7 +2,7 @@ import { motion, useReducedMotion } from "motion/react";
 import { ArrowRight, Bot, ChevronsDown, Sparkles, Zap } from "lucide-react";
 
 import heroImage from "@/assets/hero-automation.jpg";
-import { OFFER, TECHS } from "@/data/course";
+import { OFFER, TECHS, TOTAL_LESSONS_LABEL } from "@/data/course";
 import { CtaButton, Eyebrow } from "./primitives";
 
 function TechMarquee() {
@@ -54,11 +54,12 @@ export function Hero() {
 
           <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-muted-foreground">
             <span className="flex items-center gap-2">
-              <Zap className="h-3.5 w-3.5 text-neon" /> {OFFER.installments}
+              <Zap className="h-3.5 w-3.5 text-neon" /> {OFFER.price} · pagamento único
             </span>
             <span className="flex items-center gap-2">
-              <Bot className="h-3.5 w-3.5 text-neon" /> 12 módulos · 50+ aulas
+              <Bot className="h-3.5 w-3.5 text-neon" /> 12 módulos · {TOTAL_LESSONS_LABEL} aulas
             </span>
+
             <span className="flex items-center gap-2">
               <Sparkles className="h-3.5 w-3.5 text-neon" /> Acesso vitalício
             </span>

@@ -1,13 +1,6 @@
 import { useState } from "react";
-import {
-  BadgeCheck,
-  Clock,
-  Gauge,
-  Layers,
-  Rocket,
-  Target,
-  Wrench,
-} from "lucide-react";
+import { BadgeCheck, Gauge, Layers, Rocket, Target, Wrench } from "lucide-react";
+
 
 import {
   Accordion,
@@ -15,7 +8,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { MODULES, type Module } from "@/data/course";
+import { MODULES, TOTAL_LESSONS_LABEL, type Module } from "@/data/course";
 import {
   Callout,
   Chip,
@@ -41,7 +34,7 @@ function ModuleBody({ module: mod }: { module: Module }) {
           {mod.objective}
         </Callout>
 
-        <div className="grid gap-3">
+        <div className="grid max-h-[420px] gap-3 overflow-y-auto pr-1">
           {mod.lessons.map((lesson, i) => (
             <div
               key={lesson.title}
@@ -52,13 +45,7 @@ function ModuleBody({ module: mod }: { module: Module }) {
               </span>
               <div className="min-w-0 flex-1">
                 <p className="text-sm font-medium text-foreground">{lesson.title}</p>
-                <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
-                  {lesson.description}
-                </p>
-                <div className="mt-3 flex flex-wrap items-center gap-2">
-                  <span className="flex items-center gap-1.5 font-mono text-[11px] text-muted-foreground">
-                    <Clock className="h-3 w-3" /> {lesson.duration}
-                  </span>
+                <div className="mt-2 flex flex-wrap items-center gap-2">
                   <span
                     className={`rounded-md border px-2 py-0.5 font-mono text-[10px] ${LEVEL_STYLES[lesson.level]}`}
                   >
@@ -70,6 +57,7 @@ function ModuleBody({ module: mod }: { module: Module }) {
             </div>
           ))}
         </div>
+
       </div>
 
       <div className="flex flex-col gap-4 lg:col-span-5">
@@ -120,7 +108,7 @@ function ModuleBody({ module: mod }: { module: Module }) {
 
 export function Curriculum() {
   const [open, setOpen] = useState<string[]>([MODULES[0]!.id]);
-  const totalLessons = MODULES.reduce((acc, m) => acc + m.lessons.length, 0);
+  
   const progress = Math.round((open.length / MODULES.length) * 100);
 
   return (
@@ -129,8 +117,9 @@ export function Curriculum() {
         eyebrow="Conteúdo do curso"
         title={
           <>
-            {MODULES.length} módulos, <span className="text-neon">{totalLessons}+ aulas</span> — abra
-            capítulo por capítulo
+            {MODULES.length} módulos, <span className="text-neon">{TOTAL_LESSONS_LABEL} aulas</span>{" "}
+            — abra capítulo por capítulo
+
           </>
         }
         description="Cada módulo é um capítulo completo: objetivo, aulas, tecnologias, fluxo construído e o projeto que sai da sua mão no final."
