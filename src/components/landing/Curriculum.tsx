@@ -117,7 +117,9 @@ export function Curriculum() {
         eyebrow="Conteúdo do curso"
         title={
           <>
-            {MODULES.length} módulos, <span className="text-neon">{totalLessons}+ aulas</span> — abra
+            {MODULES.length} módulos, <span className="text-neon">{TOTAL_LESSONS_LABEL} aulas</span>{" "}
+            — abra capítulo por capítulo
+
             capítulo por capítulo
           </>
         }
