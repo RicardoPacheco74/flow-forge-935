@@ -8,7 +8,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { MODULES, type Module } from "@/data/course";
+import { MODULES, TOTAL_LESSONS_LABEL, type Module } from "@/data/course";
 import {
   Callout,
   Chip,
