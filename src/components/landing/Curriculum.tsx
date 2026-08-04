@@ -120,7 +120,6 @@ export function Curriculum() {
             {MODULES.length} módulos, <span className="text-neon">{TOTAL_LESSONS_LABEL} aulas</span>{" "}
             — abra capítulo por capítulo
 
-            capítulo por capítulo
           </>
         }
         description="Cada módulo é um capítulo completo: objetivo, aulas, tecnologias, fluxo construído e o projeto que sai da sua mão no final."
