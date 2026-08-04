@@ -1,10 +1,10 @@
 import { ArrowRight, CreditCard, Infinity as InfinityIcon, ShieldCheck } from "lucide-react";
 
-import { MODULES, OFFER } from "@/data/course";
+import { MODULES, OFFER, TOTAL_LESSONS_LABEL } from "@/data/course";
 import { CtaButton, Reveal, Section } from "./primitives";
 
 export function FinalCta() {
-  const totalLessons = MODULES.reduce((acc, m) => acc + m.lessons.length, 0);
+
 
   return (
     <Section id="checkout" className="pb-32">
