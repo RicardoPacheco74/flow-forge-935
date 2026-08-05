@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://flow-forge-935.lovable.app/sitemap.xml
+Sitemap: https://curso-n8n.academiadanuvem.cloud/sitemap.xml
