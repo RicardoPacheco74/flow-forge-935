@@ -1,7 +1,7 @@
 export const OFFER = {
   price: "R$ 24,90",
   checkoutUrl: "#checkout",
-  guaranteeDays: 7,
+  guaranteeDays: 30,
 };
 
 export const TOTAL_LESSONS_LABEL = "150+";
