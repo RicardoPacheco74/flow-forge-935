@@ -1,5 +1,6 @@
 import { ArrowRight, CreditCard, Infinity as InfinityIcon, ShieldCheck } from "lucide-react";
 
+import logoAcademia from "@/assets/logo-academia-da-nuvem.png.asset.json";
 import { MODULES, OFFER, TOTAL_LESSONS_LABEL } from "@/data/course";
 import { CtaButton, Reveal, Section } from "./primitives";
 
@@ -78,9 +79,33 @@ export function FinalCta() {
         </div>
       </Reveal>
 
-      <footer className="mt-16 flex flex-col items-center gap-2 text-center text-xs text-muted-foreground">
+      <footer className="mt-16 flex flex-col items-center gap-4 text-center text-xs text-muted-foreground">
         <p>Automação e Criação de Agentes de IA com n8n</p>
-        <p>© {new Date().getFullYear()} · Todos os direitos reservados.</p>
+        <a
+          href="https://www.academiadanuvem.com.br"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="transition-opacity hover:opacity-80"
+        >
+          <img
+            src={logoAcademia.url}
+            alt="Academia da Nuvem"
+            className="h-9 w-auto"
+            loading="lazy"
+          />
+        </a>
+        <p>
+          © {new Date().getFullYear()}{" "}
+          <a
+            href="https://www.academiadanuvem.com.br"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-foreground transition-colors hover:text-neon"
+          >
+            Academia da Nuvem
+          </a>{" "}
+          · Todos os direitos reservados.
+        </p>
       </footer>
     </Section>
   );
