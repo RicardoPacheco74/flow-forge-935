@@ -22,7 +22,7 @@ export function Nav() {
           <img
             src={logoAcademia.url}
             alt="Academia da Nuvem"
-            className="h-7 w-auto md:h-8"
+            className="h-8 w-auto md:h-10"
           />
         </a>
         <div className="glass hidden items-center rounded-full px-1 py-1 md:flex">
