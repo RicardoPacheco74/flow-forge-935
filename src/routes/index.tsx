@@ -14,7 +14,7 @@ import { Testimonials } from "@/components/landing/Testimonials";
 import { WhyNow } from "@/components/landing/WhyNow";
 import { FAQ, MODULES } from "@/data/course";
 
-const SITE_URL = "https://flow-forge-935.lovable.app";
+const SITE_URL = "https://curso-n8n.academiadanuvem.cloud";
 const TITLE = "Automação e Agentes de IA com n8n | Curso Completo";
 const DESCRIPTION =
   "Curso completo de n8n: automações, servidor próprio com Docker, APIs, WhatsApp, agentes de IA, RAG com PgVector, multiagentes e MCP. Do zero ao projeto real.";
