@@ -1,6 +1,7 @@
 export const OFFER = {
   price: "R$ 24,90",
-  checkoutUrl: "#checkout",
+  checkoutUrl:
+    "https://www.udemy.com/course/n8n-do-zero-ao-profissional/?couponCode=AGO2026",
   guaranteeDays: 30,
 };
 

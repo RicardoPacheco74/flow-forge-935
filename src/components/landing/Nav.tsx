@@ -38,6 +38,8 @@ export function Nav() {
         </div>
         <a
           href={OFFER.checkoutUrl}
+          target="_blank"
+          rel="noopener noreferrer"
           className="gradient-neon rounded-full px-5 py-2 text-xs font-medium text-n8n-foreground ring-1 ring-inset ring-white/40 shadow-[0_0_20px_-6px_color-mix(in_oklab,var(--neon)_70%,transparent)] transition-all hover:brightness-110"
         >
           Comprar agora

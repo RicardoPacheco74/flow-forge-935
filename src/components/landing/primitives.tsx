@@ -213,9 +213,11 @@ export function CtaButton({
   variant?: "primary" | "ghost";
   className?: string;
 }) {
+  const external = /^https?:\/\//.test(href);
   return (
     <a
       href={href}
+      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       className={cn(
         "group inline-flex items-center justify-center gap-2.5 rounded-full px-7 py-3.5 text-sm font-medium transition-all duration-300 md:text-base",
         variant === "primary"
