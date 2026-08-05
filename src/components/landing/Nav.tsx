@@ -1,6 +1,4 @@
-import { Link } from "@tanstack/react-router";
-import { Workflow } from "lucide-react";
-
+import logoAcademia from "@/assets/logo-academia-da-nuvem.png.asset.json";
 import { OFFER } from "@/data/course";
 
 const LINKS = [
@@ -15,14 +13,18 @@ export function Nav() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/5 bg-background/70 backdrop-blur-xl">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <Link to="/" className="flex items-center gap-2.5">
-          <span className="relative flex h-8 w-8 items-center justify-center rounded-lg border border-neon/30 bg-neon/10">
-            <Workflow className="h-4 w-4 text-neon" />
-          </span>
-          <span className="font-display text-base tracking-tight">
-            n8n<span className="text-neon"> Agents</span>
-          </span>
-        </Link>
+        <a
+          href="https://www.academiadanuvem.com.br"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center transition-opacity hover:opacity-80"
+        >
+          <img
+            src={logoAcademia.url}
+            alt="Academia da Nuvem"
+            className="h-7 w-auto md:h-8"
+          />
+        </a>
         <div className="glass hidden items-center rounded-full px-1 py-1 md:flex">
           {LINKS.map((l) => (
             <a
