@@ -1,6 +1,6 @@
 import { ArrowRight, CreditCard, Infinity as InfinityIcon, ShieldCheck } from "lucide-react";
 
-import logoAcademia from "@/assets/logo-academia-da-nuvem.png.asset.json";
+import logoAcademia from "@/assets/logo-academia-transparente.png.asset.json";
 import { MODULES, OFFER, TOTAL_LESSONS_LABEL } from "@/data/course";
 import { CtaButton, Reveal, Section } from "./primitives";
 
