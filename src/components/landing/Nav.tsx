@@ -1,4 +1,4 @@
-import logoAcademia from "@/assets/logo-academia-da-nuvem.png.asset.json";
+import logoAcademia from "@/assets/logo-academia-transparente.png.asset.json";
 import { OFFER } from "@/data/course";
 
 const LINKS = [
