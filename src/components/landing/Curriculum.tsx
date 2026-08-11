@@ -63,48 +63,56 @@ function ModuleBody({ module: mod }: { module: Module }) {
 
       </div>
 
-      <div className="flex flex-col gap-4 lg:col-span-5">
-        <GlassCard interactive={false} className="rounded-2xl p-5">
+      <div className="flex min-w-0 flex-col gap-4 lg:col-span-5">
+        <GlassCard interactive={false} className="min-w-0 rounded-2xl p-4 sm:p-5">
           <p className="flex items-center gap-2 text-[11px] tracking-[0.16em] uppercase text-muted-foreground">
-            <Wrench className="h-3.5 w-3.5 text-neon" /> Tecnologias utilizadas
+            <Wrench className="h-3.5 w-3.5 shrink-0 text-neon" /> Tecnologias utilizadas
           </p>
           <div className="mt-3 flex flex-wrap gap-2">
             {mod.stack.map((t) => (
-              <Chip key={t}>{t}</Chip>
+              <Chip key={t} className="max-w-full break-words">
+                {t}
+              </Chip>
             ))}
           </div>
         </GlassCard>
 
-        <GlassCard interactive={false} className="rounded-2xl p-5">
+        <GlassCard interactive={false} className="min-w-0 rounded-2xl p-4 sm:p-5">
           <p className="flex items-center gap-2 text-[11px] tracking-[0.16em] uppercase text-muted-foreground">
-            <Layers className="h-3.5 w-3.5 text-neon" /> O que será desenvolvido
+            <Layers className="h-3.5 w-3.5 shrink-0 text-neon" /> O que será desenvolvido
           </p>
-          <div className="mt-4">
+          <div className="mt-4 min-w-0">
             <FlowDiagram steps={mod.flow} />
           </div>
         </GlassCard>
 
-        <div className="relative overflow-hidden rounded-2xl border border-neon/25 bg-gradient-to-br from-neon/12 to-transparent p-5">
+        <div className="relative min-w-0 overflow-hidden rounded-2xl border border-neon/25 bg-gradient-to-br from-neon/12 to-transparent p-4 sm:p-5">
           <p className="flex items-center gap-2 text-[11px] tracking-[0.16em] uppercase text-neon">
-            <Rocket className="h-3.5 w-3.5" /> Projeto construído
+            <Rocket className="h-3.5 w-3.5 shrink-0" /> Projeto construído
           </p>
-          <p className="mt-2 text-sm leading-relaxed text-foreground">{mod.project}</p>
+          <p className="mt-2 text-[13px] leading-relaxed break-words text-foreground sm:text-sm">
+            {mod.project}
+          </p>
         </div>
 
-        <GlassCard interactive={false} className="rounded-2xl p-5">
+        <GlassCard interactive={false} className="min-w-0 rounded-2xl p-4 sm:p-5">
           <p className="text-[11px] tracking-[0.16em] uppercase text-muted-foreground">
             Conhecimentos adquiridos
           </p>
           <ul className="mt-3 space-y-2.5">
             {mod.outcomes.map((o) => (
-              <li key={o} className="flex items-start gap-2.5 text-sm text-foreground/85">
+              <li
+                key={o}
+                className="flex items-start gap-2.5 text-[13px] break-words text-foreground/85 sm:text-sm"
+              >
                 <BadgeCheck className="mt-0.5 h-4 w-4 shrink-0 text-neon" />
-                {o}
+                <span className="min-w-0">{o}</span>
               </li>
             ))}
           </ul>
         </GlassCard>
       </div>
+
     </div>
   );
 }
