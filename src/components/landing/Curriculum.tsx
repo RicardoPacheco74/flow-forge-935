@@ -28,23 +28,25 @@ const LEVEL_STYLES: Record<string, string> = {
 
 function ModuleBody({ module: mod }: { module: Module }) {
   return (
-    <div className="grid gap-6 pt-2 lg:grid-cols-12">
-      <div className="flex flex-col gap-5 lg:col-span-7">
+    <div className="grid gap-5 pt-2 md:gap-6 lg:grid-cols-12">
+      <div className="flex min-w-0 flex-col gap-4 md:gap-5 lg:col-span-7">
         <Callout icon={Target} label="Objetivo do módulo">
           {mod.objective}
         </Callout>
 
-        <div className="grid max-h-[420px] gap-3 overflow-y-auto pr-1">
+        <div className="grid max-h-[320px] gap-2.5 overflow-y-auto pr-1 sm:max-h-[380px] md:max-h-[420px] md:gap-3">
           {mod.lessons.map((lesson, i) => (
             <div
               key={lesson.title}
-              className="group/lesson flex items-start gap-4 rounded-2xl border border-border bg-white/[0.03] p-4 transition-colors hover:border-neon/25 hover:bg-neon/[0.04]"
+              className="group/lesson flex items-start gap-3 rounded-2xl border border-border bg-white/[0.03] p-3 transition-colors hover:border-neon/25 hover:bg-neon/[0.04] sm:gap-4 sm:p-4"
             >
-              <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-border bg-surface-2 font-mono text-[11px] text-neon">
+              <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-xl border border-border bg-surface-2 font-mono text-[10px] text-neon sm:h-8 sm:w-8 sm:text-[11px]">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <div className="min-w-0 flex-1">
-                <p className="text-sm font-medium text-foreground">{lesson.title}</p>
+                <p className="text-[13px] leading-snug font-medium break-words text-foreground sm:text-sm">
+                  {lesson.title}
+                </p>
                 <div className="mt-2 flex flex-wrap items-center gap-2">
                   <span
                     className={`rounded-md border px-2 py-0.5 font-mono text-[10px] ${LEVEL_STYLES[lesson.level]}`}
@@ -57,6 +59,7 @@ function ModuleBody({ module: mod }: { module: Module }) {
             </div>
           ))}
         </div>
+
 
       </div>
 
