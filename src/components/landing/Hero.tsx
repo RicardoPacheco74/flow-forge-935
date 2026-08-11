@@ -81,6 +81,9 @@ export function Hero() {
                 alt="Diagrama de um agente de IA conectado a banco de dados, chat e relatórios em um workflow n8n"
                 width={1280}
                 height={1280}
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
                 className="h-full w-full object-cover"
               />
               <div className="absolute inset-x-0 bottom-0 flex items-center justify-between gap-3 bg-gradient-to-t from-background via-background/80 to-transparent p-5">
