@@ -12,7 +12,9 @@ import { Nav } from "@/components/landing/Nav";
 import { Projects } from "@/components/landing/Projects";
 import { Testimonials } from "@/components/landing/Testimonials";
 import { WhyNow } from "@/components/landing/WhyNow";
-import { FAQ, MODULES } from "@/data/course";
+import logoAcademia from "@/assets/logo-academia-transparente.png.asset.json";
+import ogImage from "@/assets/og-curso-n8n.jpg.asset.json";
+import { FAQ, MODULES, OFFER } from "@/data/course";
 
 const SITE_URL = "https://curso-n8n.academiadanuvem.cloud";
 const COURSE_NAME = "n8n do Zero ao Profissional - Automações e Agentes de IA";
