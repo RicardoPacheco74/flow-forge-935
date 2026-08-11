@@ -179,39 +179,42 @@ export function Curriculum() {
                   isOpen ? "glow-ring border-neon/30" : "hover:border-neon/20"
                 }`}
               >
-                <AccordionTrigger className="items-start gap-4 px-5 py-5 hover:no-underline md:px-7 md:py-6 [&>svg]:mt-2 [&>svg]:h-5 [&>svg]:w-5 [&>svg]:text-neon">
-                  <span className="flex min-w-0 flex-1 items-start gap-4">
+                <AccordionTrigger className="items-start gap-3 px-4 py-4 text-left hover:no-underline sm:gap-4 sm:px-5 sm:py-5 md:px-7 md:py-6 [&>svg]:mt-1.5 [&>svg]:h-4 [&>svg]:w-4 [&>svg]:shrink-0 [&>svg]:text-neon sm:[&>svg]:mt-2 sm:[&>svg]:h-5 sm:[&>svg]:w-5">
+                  <span className="flex min-w-0 flex-1 items-start gap-3 sm:gap-4">
                     <span
-                      className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border transition-colors ${
+                      className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-2xl border transition-colors sm:h-11 sm:w-11 ${
                         isOpen
                           ? "border-neon/40 bg-neon/15 text-neon"
                           : "border-border bg-white/5 text-muted-foreground"
                       }`}
                     >
-                      <Icon className="h-5 w-5" />
+                      <Icon className="h-4 w-4 sm:h-5 sm:w-5" />
                     </span>
                     <span className="min-w-0 flex-1">
-                      <span className="font-mono text-[11px] tracking-[0.18em] text-neon">
+                      <span className="font-mono text-[10px] tracking-[0.18em] text-neon sm:text-[11px]">
                         MÓDULO {String(i + 1).padStart(2, "0")}
                       </span>
-                      <span className="mt-1 block font-display text-lg leading-tight font-light tracking-tight md:text-2xl">
+                      <span className="mt-1 block font-display text-base leading-tight font-light tracking-tight break-words sm:text-lg md:text-2xl">
                         {mod.title}
                       </span>
-                      <span className="mt-1.5 block text-xs text-muted-foreground md:text-sm">
+                      <span className="mt-1.5 block text-xs break-words text-muted-foreground md:text-sm">
                         {mod.tagline}
                       </span>
-                      <span className="mt-3 flex flex-wrap items-center gap-2">
+                      <span className="mt-3 flex flex-wrap items-center gap-1.5 sm:gap-2">
                         <Chip className="border-neon/25 bg-neon/10 text-neon">
                           {mod.lessons.length} aulas
                         </Chip>
-                        {mod.stack.slice(0, 3).map((t) => (
-                          <Chip key={t}>{t}</Chip>
+                        {mod.stack.slice(0, 3).map((t, idx) => (
+                          <Chip key={t} className={idx > 1 ? "hidden sm:inline-flex" : ""}>
+                            {t}
+                          </Chip>
                         ))}
                       </span>
                     </span>
                   </span>
                 </AccordionTrigger>
-                <AccordionContent className="px-5 pb-7 md:px-7">
+                <AccordionContent className="px-4 pb-6 sm:px-5 sm:pb-7 md:px-7">
+
                   <div className="mb-6 h-px w-full bg-gradient-to-r from-transparent via-neon/40 to-transparent" />
                   <ModuleBody module={mod} />
                 </AccordionContent>
