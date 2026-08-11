@@ -15,9 +15,13 @@ import { WhyNow } from "@/components/landing/WhyNow";
 import { FAQ, MODULES } from "@/data/course";
 
 const SITE_URL = "https://curso-n8n.academiadanuvem.cloud";
-const TITLE = "Automação e Agentes de IA com n8n | Curso Completo";
+const COURSE_NAME = "n8n do Zero ao Profissional - Automações e Agentes de IA";
+const TITLE = "Curso de n8n do Zero ao Profissional | Agentes de IA e Automação";
 const DESCRIPTION =
-  "Curso completo de n8n: automações, servidor próprio com Docker, APIs, WhatsApp, agentes de IA, RAG com PgVector, multiagentes e MCP. Do zero ao projeto real.";
+  "Aprenda n8n do zero ao profissional e crie automações, agentes de IA, RAG, multiagentes, MCP e integrações com APIs, WhatsApp, Supabase e Docker.";
+const SOCIAL_DESCRIPTION =
+  "Curso de n8n do zero ao profissional: automações, agentes de IA, RAG, multiagentes, MCP e integrações reais com APIs, WhatsApp e Docker.";
+const OG_IMAGE = `${SITE_URL}${ogImage.url}`;
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -25,10 +29,22 @@ export const Route = createFileRoute("/")({
       { title: TITLE },
       { name: "description", content: DESCRIPTION },
       { property: "og:title", content: TITLE },
-      { property: "og:description", content: DESCRIPTION },
+      { property: "og:description", content: SOCIAL_DESCRIPTION },
       { property: "og:type", content: "website" },
       { property: "og:url", content: `${SITE_URL}/` },
+      { property: "og:site_name", content: "Academia da Nuvem" },
+      { property: "og:locale", content: "pt_BR" },
+      { property: "og:image", content: OG_IMAGE },
+      { property: "og:image:width", content: "1280" },
+      { property: "og:image:height", content: "1280" },
+      {
+        property: "og:image:alt",
+        content: "Curso de n8n com automações e agentes de inteligência artificial",
+      },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: TITLE },
+      { name: "twitter:description", content: SOCIAL_DESCRIPTION },
+      { name: "twitter:image", content: OG_IMAGE },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/` }],
     scripts: [
@@ -37,14 +53,38 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Course",
-          name: "Automação e Criação de Agentes de IA com n8n",
+          name: COURSE_NAME,
           description: DESCRIPTION,
           inLanguage: "pt-BR",
           url: `${SITE_URL}/`,
+          image: OG_IMAGE,
+          educationalLevel: "Iniciante a avançado",
+          about: [
+            "n8n",
+            "Automação de workflows",
+            "Inteligência artificial",
+            "Agentes de IA",
+            "LLMs",
+            "RAG",
+            "MCP",
+            "APIs e webhooks",
+            "WhatsApp",
+            "Supabase",
+            "PostgreSQL",
+            "Docker",
+          ],
+          teaches: MODULES.map((m) => m.title),
           provider: {
             "@type": "Organization",
-            name: "n8n Agents",
-            url: SITE_URL,
+            name: "Academia da Nuvem",
+            url: "https://academiadanuvem.com.br/",
+          },
+          offers: {
+            "@type": "Offer",
+            price: OFFER.price.replace("R$ ", "").replace(",", "."),
+            priceCurrency: "BRL",
+            availability: "https://schema.org/InStock",
+            url: `${SITE_URL}/`,
           },
           hasCourseInstance: {
             "@type": "CourseInstance",
@@ -57,6 +97,28 @@ export const Route = createFileRoute("/")({
             name: m.title,
             description: m.tagline,
           })),
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "Academia da Nuvem",
+          url: "https://academiadanuvem.com.br/",
+          logo: `${SITE_URL}${logoAcademia.url}`,
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+            { "@type": "ListItem", position: 2, name: "Cursos", item: `${SITE_URL}/#conteudo` },
+            { "@type": "ListItem", position: 3, name: COURSE_NAME, item: `${SITE_URL}/` },
+          ],
         }),
       },
       {
