@@ -28,23 +28,25 @@ const LEVEL_STYLES: Record<string, string> = {
 
 function ModuleBody({ module: mod }: { module: Module }) {
   return (
-    <div className="grid gap-6 pt-2 lg:grid-cols-12">
-      <div className="flex flex-col gap-5 lg:col-span-7">
+    <div className="grid gap-5 pt-2 md:gap-6 lg:grid-cols-12">
+      <div className="flex min-w-0 flex-col gap-4 md:gap-5 lg:col-span-7">
         <Callout icon={Target} label="Objetivo do módulo">
           {mod.objective}
         </Callout>
 
-        <div className="grid max-h-[420px] gap-3 overflow-y-auto pr-1">
+        <div className="grid max-h-[320px] gap-2.5 overflow-y-auto pr-1 sm:max-h-[380px] md:max-h-[420px] md:gap-3">
           {mod.lessons.map((lesson, i) => (
             <div
               key={lesson.title}
-              className="group/lesson flex items-start gap-4 rounded-2xl border border-border bg-white/[0.03] p-4 transition-colors hover:border-neon/25 hover:bg-neon/[0.04]"
+              className="group/lesson flex items-start gap-3 rounded-2xl border border-border bg-white/[0.03] p-3 transition-colors hover:border-neon/25 hover:bg-neon/[0.04] sm:gap-4 sm:p-4"
             >
-              <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-border bg-surface-2 font-mono text-[11px] text-neon">
+              <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-xl border border-border bg-surface-2 font-mono text-[10px] text-neon sm:h-8 sm:w-8 sm:text-[11px]">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <div className="min-w-0 flex-1">
-                <p className="text-sm font-medium text-foreground">{lesson.title}</p>
+                <p className="text-[13px] leading-snug font-medium break-words text-foreground sm:text-sm">
+                  {lesson.title}
+                </p>
                 <div className="mt-2 flex flex-wrap items-center gap-2">
                   <span
                     className={`rounded-md border px-2 py-0.5 font-mono text-[10px] ${LEVEL_STYLES[lesson.level]}`}
@@ -58,50 +60,59 @@ function ModuleBody({ module: mod }: { module: Module }) {
           ))}
         </div>
 
+
       </div>
 
-      <div className="flex flex-col gap-4 lg:col-span-5">
-        <GlassCard interactive={false} className="rounded-2xl p-5">
+      <div className="flex min-w-0 flex-col gap-4 lg:col-span-5">
+        <GlassCard interactive={false} className="min-w-0 rounded-2xl p-4 sm:p-5">
           <p className="flex items-center gap-2 text-[11px] tracking-[0.16em] uppercase text-muted-foreground">
-            <Wrench className="h-3.5 w-3.5 text-neon" /> Tecnologias utilizadas
+            <Wrench className="h-3.5 w-3.5 shrink-0 text-neon" /> Tecnologias utilizadas
           </p>
           <div className="mt-3 flex flex-wrap gap-2">
             {mod.stack.map((t) => (
-              <Chip key={t}>{t}</Chip>
+              <Chip key={t} className="max-w-full break-words">
+                {t}
+              </Chip>
             ))}
           </div>
         </GlassCard>
 
-        <GlassCard interactive={false} className="rounded-2xl p-5">
+        <GlassCard interactive={false} className="min-w-0 rounded-2xl p-4 sm:p-5">
           <p className="flex items-center gap-2 text-[11px] tracking-[0.16em] uppercase text-muted-foreground">
-            <Layers className="h-3.5 w-3.5 text-neon" /> O que será desenvolvido
+            <Layers className="h-3.5 w-3.5 shrink-0 text-neon" /> O que será desenvolvido
           </p>
-          <div className="mt-4">
+          <div className="mt-4 min-w-0">
             <FlowDiagram steps={mod.flow} />
           </div>
         </GlassCard>
 
-        <div className="relative overflow-hidden rounded-2xl border border-neon/25 bg-gradient-to-br from-neon/12 to-transparent p-5">
+        <div className="relative min-w-0 overflow-hidden rounded-2xl border border-neon/25 bg-gradient-to-br from-neon/12 to-transparent p-4 sm:p-5">
           <p className="flex items-center gap-2 text-[11px] tracking-[0.16em] uppercase text-neon">
-            <Rocket className="h-3.5 w-3.5" /> Projeto construído
+            <Rocket className="h-3.5 w-3.5 shrink-0" /> Projeto construído
           </p>
-          <p className="mt-2 text-sm leading-relaxed text-foreground">{mod.project}</p>
+          <p className="mt-2 text-[13px] leading-relaxed break-words text-foreground sm:text-sm">
+            {mod.project}
+          </p>
         </div>
 
-        <GlassCard interactive={false} className="rounded-2xl p-5">
+        <GlassCard interactive={false} className="min-w-0 rounded-2xl p-4 sm:p-5">
           <p className="text-[11px] tracking-[0.16em] uppercase text-muted-foreground">
             Conhecimentos adquiridos
           </p>
           <ul className="mt-3 space-y-2.5">
             {mod.outcomes.map((o) => (
-              <li key={o} className="flex items-start gap-2.5 text-sm text-foreground/85">
+              <li
+                key={o}
+                className="flex items-start gap-2.5 text-[13px] break-words text-foreground/85 sm:text-sm"
+              >
                 <BadgeCheck className="mt-0.5 h-4 w-4 shrink-0 text-neon" />
-                {o}
+                <span className="min-w-0">{o}</span>
               </li>
             ))}
           </ul>
         </GlassCard>
       </div>
+
     </div>
   );
 }
@@ -168,39 +179,42 @@ export function Curriculum() {
                   isOpen ? "glow-ring border-neon/30" : "hover:border-neon/20"
                 }`}
               >
-                <AccordionTrigger className="items-start gap-4 px-5 py-5 hover:no-underline md:px-7 md:py-6 [&>svg]:mt-2 [&>svg]:h-5 [&>svg]:w-5 [&>svg]:text-neon">
-                  <span className="flex min-w-0 flex-1 items-start gap-4">
+                <AccordionTrigger className="items-start gap-3 px-4 py-4 text-left hover:no-underline sm:gap-4 sm:px-5 sm:py-5 md:px-7 md:py-6 [&>svg]:mt-1.5 [&>svg]:h-4 [&>svg]:w-4 [&>svg]:shrink-0 [&>svg]:text-neon sm:[&>svg]:mt-2 sm:[&>svg]:h-5 sm:[&>svg]:w-5">
+                  <span className="flex min-w-0 flex-1 items-start gap-3 sm:gap-4">
                     <span
-                      className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border transition-colors ${
+                      className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-2xl border transition-colors sm:h-11 sm:w-11 ${
                         isOpen
                           ? "border-neon/40 bg-neon/15 text-neon"
                           : "border-border bg-white/5 text-muted-foreground"
                       }`}
                     >
-                      <Icon className="h-5 w-5" />
+                      <Icon className="h-4 w-4 sm:h-5 sm:w-5" />
                     </span>
                     <span className="min-w-0 flex-1">
-                      <span className="font-mono text-[11px] tracking-[0.18em] text-neon">
+                      <span className="font-mono text-[10px] tracking-[0.18em] text-neon sm:text-[11px]">
                         MÓDULO {String(i + 1).padStart(2, "0")}
                       </span>
-                      <span className="mt-1 block font-display text-lg leading-tight font-light tracking-tight md:text-2xl">
+                      <span className="mt-1 block font-display text-base leading-tight font-light tracking-tight break-words sm:text-lg md:text-2xl">
                         {mod.title}
                       </span>
-                      <span className="mt-1.5 block text-xs text-muted-foreground md:text-sm">
+                      <span className="mt-1.5 block text-xs break-words text-muted-foreground md:text-sm">
                         {mod.tagline}
                       </span>
-                      <span className="mt-3 flex flex-wrap items-center gap-2">
+                      <span className="mt-3 flex flex-wrap items-center gap-1.5 sm:gap-2">
                         <Chip className="border-neon/25 bg-neon/10 text-neon">
                           {mod.lessons.length} aulas
                         </Chip>
-                        {mod.stack.slice(0, 3).map((t) => (
-                          <Chip key={t}>{t}</Chip>
+                        {mod.stack.slice(0, 3).map((t, idx) => (
+                          <Chip key={t} className={idx > 1 ? "hidden sm:inline-flex" : ""}>
+                            {t}
+                          </Chip>
                         ))}
                       </span>
                     </span>
                   </span>
                 </AccordionTrigger>
-                <AccordionContent className="px-5 pb-7 md:px-7">
+                <AccordionContent className="px-4 pb-6 sm:px-5 sm:pb-7 md:px-7">
+
                   <div className="mb-6 h-px w-full bg-gradient-to-r from-transparent via-neon/40 to-transparent" />
                   <ModuleBody module={mod} />
                 </AccordionContent>
