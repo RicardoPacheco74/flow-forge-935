@@ -9,6 +9,7 @@ import { Faq } from "@/components/landing/Faq";
 import { FinalCta } from "@/components/landing/FinalCta";
 import { Hero } from "@/components/landing/Hero";
 import { Nav } from "@/components/landing/Nav";
+import { SeoContext } from "@/components/landing/SeoContext";
 import { Projects } from "@/components/landing/Projects";
 import { Testimonials } from "@/components/landing/Testimonials";
 import { WhyNow } from "@/components/landing/WhyNow";
@@ -156,6 +157,7 @@ function Index() {
           <Evolution />
           <Testimonials />
           <Faq />
+          <SeoContext />
           <FinalCta />
         </main>
       </div>
