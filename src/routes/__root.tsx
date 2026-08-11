@@ -84,7 +84,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Curso premium de automação e criação de agentes de IA com n8n: infraestrutura própria, RAG, multiagentes e MCP.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:site_name", content: "n8n Agents" },
+      { property: "og:site_name", content: "Academia da Nuvem" },
       { name: "twitter:card", content: "summary_large_image" },
       {
         name: "google-site-verification",
@@ -98,13 +98,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebSite",
-          name: "n8n Agents",
+          name: "Curso de n8n - Academia da Nuvem",
           url: "https://curso-n8n.academiadanuvem.cloud",
           inLanguage: "pt-BR",
           publisher: {
             "@type": "Organization",
-            name: "n8n Agents",
-            url: "https://curso-n8n.academiadanuvem.cloud",
+            name: "Academia da Nuvem",
+            url: "https://academiadanuvem.com.br/",
           },
         }),
       },
