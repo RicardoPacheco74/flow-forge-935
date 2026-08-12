@@ -59,7 +59,7 @@ export function FinalCta() {
                   {
                     icon: CreditCard,
                     title: "Pagamento seguro",
-                    text: "PIX, boleto ou cartão em até 12x.",
+                    text: "PIX, boleto ou cartão.",
                   },
                   {
                     icon: InfinityIcon,
