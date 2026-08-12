@@ -175,18 +175,18 @@ export function Callout({
 
 export function FlowDiagram({ steps }: { steps: string[] }) {
   return (
-    <div className="no-scrollbar flex items-center gap-2 overflow-x-auto pb-1">
+    <div className="no-scrollbar flex min-w-0 flex-wrap items-center gap-x-2 gap-y-2.5 overflow-x-auto pb-1">
       {steps.map((step, i) => (
-        <div key={step} className="flex shrink-0 items-center gap-2">
-          <div className="rounded-xl border border-border bg-surface-2/80 px-3 py-2 text-xs text-foreground/80">
+        <div key={step} className="flex min-w-0 shrink-0 items-center gap-2">
+          <div className="max-w-[160px] truncate rounded-xl border border-border bg-surface-2/80 px-2.5 py-1.5 text-[11px] text-foreground/80 sm:max-w-[200px] sm:px-3 sm:py-2 sm:text-xs md:max-w-none md:whitespace-normal md:break-words">
             {step}
           </div>
           {i < steps.length - 1 ? (
-            <svg width="28" height="8" viewBox="0 0 28 8" aria-hidden className="shrink-0">
+            <svg width="24" height="8" viewBox="0 0 24 8" aria-hidden className="shrink-0">
               <line
                 x1="0"
                 y1="4"
-                x2="28"
+                x2="24"
                 y2="4"
                 stroke="var(--neon)"
                 strokeWidth="1.5"
