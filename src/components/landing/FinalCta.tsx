@@ -17,7 +17,7 @@ export function FinalCta() {
             <div className="relative">
               <span className="glass inline-flex items-center gap-2 rounded-full px-3 py-1.5 font-mono text-[11px] tracking-wide text-neon">
                 <span className="h-1.5 w-1.5 rounded-full bg-neon" />
-                Turma com acesso imediato
+                Acesso imediato
               </span>
               <h2 className="mx-auto mt-7 max-w-3xl font-display text-3xl leading-[1.1] font-light tracking-tight text-balance md:text-5xl">
                 Comece hoje a construir seus{" "}
