@@ -56,6 +56,7 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Course",
+          "@id": `${SITE_URL}/#course`,
           name: COURSE_NAME,
           description: DESCRIPTION,
           inLanguage: "pt-BR",
@@ -77,22 +78,21 @@ export const Route = createFileRoute("/")({
             "Docker",
           ],
           teaches: MODULES.map((m) => m.title),
-          provider: {
-            "@type": "Organization",
-            name: "Academia da Nuvem",
-            url: "https://academiadanuvem.com.br/",
-          },
+          author: { "@id": `${SITE_URL}/#organization` },
+          provider: { "@id": `${SITE_URL}/#organization` },
           offers: {
             "@type": "Offer",
             price: OFFER.price.replace("R$ ", "").replace(",", "."),
             priceCurrency: "BRL",
             availability: "https://schema.org/InStock",
-            url: `${SITE_URL}/`,
+            url: OFFER.checkoutUrl,
+            validFrom: "2026-08-01",
           },
           hasCourseInstance: {
             "@type": "CourseInstance",
             courseMode: "online",
             courseWorkload: "PT30H",
+            inLanguage: "pt-BR",
           },
           syllabusSections: MODULES.map((m, i) => ({
             "@type": "Syllabus",
@@ -107,6 +107,7 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Organization",
+          "@id": `${SITE_URL}/#organization`,
           name: "Academia da Nuvem",
           url: "https://academiadanuvem.com.br/",
           logo: `${SITE_URL}${logoAcademia.url}`,
@@ -129,6 +130,7 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FAQPage",
+          "@id": `${SITE_URL}/#faq`,
           mainEntity: FAQ.map((item) => ({
             "@type": "Question",
             name: item.q,
